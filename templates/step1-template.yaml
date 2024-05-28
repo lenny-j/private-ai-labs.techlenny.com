@@ -1,0 +1,76 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: CloudFormation template to deploy OpenWebUI on AWS
+
+Resources:
+  OpenWebUISecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enable HTTP access
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 0
+          ToPort: 65535
+          CidrIp: <YOUR SOURCE IP>/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: <YOUR SOURCE IP>/32
+
+  OpenWebUIInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.small
+      SecurityGroups:
+        - !Ref OpenWebUISecurityGroup
+      ImageId: ami-02bf8ce06a8ed6092 # Amazon Linux 2 AMI
+      KeyName: <YOUR KEY PAIR NAME>
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          yum update -y
+          yum install -y docker
+          service docker start
+          usermod -a -G docker ec2-user
+          docker run -d -p 81:8080 -e OPENAI_API_KEY=<YOUR API KEY> -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+          # set SSL termination on the load balancer
+          yum install nginx -y
+          systemctl start nginx
+          systemctl enable nginx
+          # Create SSL directory and generate self-signed certificate
+          mkdir -p /etc/nginx/ssl
+          openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 \
+            -subj "/C=US/ST=New York/L=New York/O=Company Name/OU=Org/CN=localhost" \
+            -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt
+
+          # Configure NGINX as reverse proxy
+          # may need to adjust the port no's, as original docker container is running on 80
+          echo '
+          server {
+              listen 443 ssl;
+              server_name localhost;
+
+              ssl_certificate /etc/nginx/ssl/nginx.crt;
+              ssl_certificate_key /etc/nginx/ssl/nginx.key;
+
+              location / {
+                  proxy_pass http://localhost:81;
+                  proxy_set_header Host $host;
+                  proxy_set_header X-Real-IP $remote_addr;
+                  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                  proxy_set_header X-Forwarded-Proto $scheme;
+              }
+            }' >> /etc/nginx/conf.d/reverse-proxy.conf
+
+            # Restart NGINX to apply the configuration
+            systemctl restart nginx
+
+Outputs:
+  InstanceId:
+    Description: Instance ID of the OpenWebUI EC2 instance
+    Value: !Ref OpenWebUIInstance
+
+  PublicIP:
+    Description: Public IP address of the OpenWebUI EC2 instance
+    Value: !GetAtt
+      - OpenWebUIInstance
+      - PublicIp
