@@ -20,7 +20,7 @@ Resources:
       SecurityGroups:
         - !Ref OpenWebUISecurityGroup
       ImageId: ami-04b70fa74e45c3917 # # us-east-1 / N. Virginia
-      KeyName: LBW-PerAcct-Access
+      KeyName: [SSH KEYPAIR NAME]
       BlockDeviceMappings:
         - DeviceName: "/dev/sda1"
           Ebs:
