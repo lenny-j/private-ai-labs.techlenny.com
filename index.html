@@ -21,9 +21,17 @@ p {color: white;}
   <!-- Header/Home -->
   <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
     <h1 class="w3-jumbo"><span class="w3-hide-small">Private Generative AI - Demos</h1>
-    <p>Sppting Txt</p>
-    <img src="/w3images/man_smoke.jpg" alt="img - if needed" class="w3-image" width="992" height="1108">
-    <hr />
+      <p class="w3-padding-16 w3-text-light-grey" style="font-size: 20px; line-height: 2;">Welcome<br />
+      This is an exploration on foundational Generative AI conversational applications.<br />
+      The following resources are designed to show how to build a private, self-hosted platform for AI applications.<br />
+      Community resources, cloud infrastructure, and open source tools are used to demonstrate the process.<br />
+      <strong>NOTE: All data used in these demonstrations should be non-sensitive, and for testing purposes only.</strong><br />
+      Components used here provide a foundation for continuing your Gen AI journey.<br />
+
+    </p>
+
+        
+        <hr />
   </header>
 
   <!-- About Section -->
@@ -103,14 +111,12 @@ p {color: white;}
     EXHIBIT NO. 2 - //RAG - using the default OpenWEB-UI integration(s); Add Simple RAG Data Source & Search Functionality
     -->
 
-    <h2 class="w3-text-light-grey">Step 2 - Add Simple "RAG" Functionality to make Private Data Available for Consumption</h2>
+    <h2 class="w3-text-light-grey">Step 2 - Use "Documents" to Interact with YOUR OWN Data</h2>
     <!-- <hr style="width:200px" class="w3-opacity"> -->
     <p>Next, proof of concept the addition of private, or internal data sources.</p>
     <h3 style="color: red;">WARNING: This step will continue to make use of OpenAI (vendor) APIs for both: RAG addition, and also RAG based queries!</h3>
     <p>This will make any private data AVAILABLE to OpenAI - so proceed with TEST DATA ONLY at this step</p>
-    <h3 class="w3-padding-16 w3-text-light-grey">Supporting Content 1</h3>
-    <p class="w3-wide">more text here</p>
-    
+    <h3 class="w3-padding-16 w3-text-light-grey">Solution Overview</h3>
     <br>
     
     <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
@@ -120,9 +126,8 @@ p {color: white;}
       </div>
     </div>
 
-    <h3 class="w3-padding-16 w3-text-light-grey">Privacy</h3>
-    <p class="w3-wide">more text here</p>
-    <p>REF:
+    <h3 class="w3-padding-16 w3-text-light-grey">Privacy & Security Considerations</h3>
+    <!-- <p>REF:
       ** RAG integration has TWO, seperate workflows that SEND source data to OpenAI for processing.
       1: Source/Private data preparation
       2: Fetch, and return related data for use as a part of the query sent to OpenAI
@@ -133,37 +138,78 @@ p {color: white;}
       - Open WebUI offers a simlified version of RAG functionality, and is a good starting point for testing
       - Show you the "context" information that then flows with the prompt question / request
 
+      -------
 
-    </p>
+      Various levels of RAG 
+      for this one - Best USE CASEs are
+      > Very specific questions - about data that the model wolud not have seen before; esp. private data
+      > Where - a fast, more readable "document search" is acceptable; think of it as a "search engine" for your data
+
+      ** Native RAG, esp. in this example, is **NOT** looking at ALL of the content, of all docs
+
+      @@An ideal ex: Helpdesk search resoltions for err "the err message"
+      from ticket notes, or a KB
+      @@
+      
+      REASON we care - can build on the same concepts
+      add some addl., improvement steps - to make querying private data MUCH MORE USEFUL - "advanced RAG"
+        other tutorials
+      
+
+
+
+    </p> -->
     
     <br>
     
     <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
       <div class="w3-full w3-section">
-        <span class="w3-xlarge">Put stuff here</span><br>
-        Partners
+        <p style="color: black; text-align: left; padding: 10px 20px 10px 20px;">
+          <strong>CRITICAL NOTE: At this step, the solution is still making use of OpenAI via API calls.</strong><br /><br />
+            All information is still traversing through the vendor’s environment.<br />
+            Use ONLY non-sensitive data for testing purposes!</p>
+        <p style="color: black; text-align: left; padding: 10px 20px 10px 20px;">
+          <strong>Core Benefits at this step:</strong><br /><br />
+          - Give ChatAPP access to information that is not available via OpenAI<br />
+          - Explicitly manage the context of the information used in the query<br />
+          - Provide alternative interface(s) for existing data resources<br />
+
+
+        </p>
+        <p style="color: black; text-align: left; padding: 10px 20px 10px 20px;">
+          
+          <strong>Other interesting features include:</strong><br /><br />
+          
+          <!-- Increase speed of search based workflows with LLM (and RAG) based tools
+          Consolidate, combine, and delegate access to custom data resources -->
+
+          - May increase speed of search based workflows with LLM (and RAG) based tools<br />
+          - Work with more natural language results<br />
+          - Can be integrated with other ChatAPP / LLM tools to combine BOTH general and specific data sources<br />
+
+
+        </p>
+
       </div>
     </div>
 
-    <h3 class="w3-padding-16 w3-text-light-grey">Supporting Content 3</h3>
-    <p class="w3-wide">more text here</p>
+    <h3 class="w3-padding-16 w3-text-light-grey">Solution Demo</h3>
+    <p>Watch the video below for a demonstration of using uploaded data sources.</p>
     
     <br>
     
     <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
       <div class="w3-full w3-section">
-        <span class="w3-xlarge">Put stuff here</span><br>
-        Partners
+        <div style="padding:56.25% 0 0 0;position:relative; max-width: 95%; margin: auto;"><iframe src="https://player.vimeo.com/video/952105418?h=001378d0d8&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&quality=1080p" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="privateai-step1-demo"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
       </div>
     </div>
-   
+    <h3 class="w3-padding-16 w3-text-light-grey">Template Source File(s)</h3>
     <a href="https://github.com/lenny-j/private-ai-labs.techlenny.com/blob/main/templates/step2-uiconfig-steps.pdf" target="_blank">
     <button class="w3-button w3-light-grey w3-padding-large w3-section">
       <i class="fa fa-download"></i> Open UI Config Steps
     </button></a>
     
     <hr class="w3-opacity">
-    .. next here
 
 
     <!-- 
@@ -172,47 +218,49 @@ p {color: white;}
     EXHIBIT NO. 3 - //Deploy w/ OPEN SOURCE; Deploy with Open Source LLM - Llama
     -->
 
-    <h2 class="w3-text-light-grey">Step 3 - Deploy with Llama LLM for End-to-End Control of ALL Data</h2>
+    <h2 class="w3-text-light-grey">Step 3 - Install Self-Hosted LLM Models</h2>
     <!-- <hr style="width:200px" class="w3-opacity"> -->
+    
+    <h2 style="color: green;">Enables End-to-End Control of ALL Data</h2>
     <p>Finally, we'll integrate COMPLETELY self-hosted components for both the interface, RAG, and LLM consumption.</p>
     <p>At this point, ALL data is contained within your platform.</p>
-    <p>This deployment disconnects the generative AI tool from all vendor APIs / services.</p>
-    <h3 class="w3-padding-16 w3-text-light-grey">Supporting Content 1</h3>
-    <p class="w3-wide">more text here</p>
-    
+    <p>This deployment disconnects the generative AI tool from all vendor APIs & services.</p>
+    <h3 class="w3-padding-16 w3-text-light-grey">Solution Overview</h3>
     <br>
-    
     <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
       <div class="w3-full w3-section">
         <span class="w3-xlarge"><img src="assets/ex-3-diag.png" style="max-width: 70%;"></span><br>
-        Partners
       </div>
     </div>
 
-    <h3 class="w3-padding-16 w3-text-light-grey">Supporting Content 2</h3>
-    <p class="w3-wide">more text here</p>
+    <h3 class="w3-padding-16 w3-text-light-grey">Privacy & Security Considerations</h3>
+       <br>
+    <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
+      <div class="w3-full w3-section">
+        <p style="color: black; text-align: left; padding: 10px 20px 10px 20px;">
+          <strong>Core Benefits at this step:</strong><br /><br />
+          - FULLY contained, Private Solution <br />
+          - Able to isolate the resource, and disable public Internet access if needed/desired<br />
+          - All data, interactions, traffic, and logs are wholly contained WITHIN the platform<br /><br />
+          <strong>Primary Considerations & Cautions:</strong><br /><br />
+          - SIGNIFICANT COST potential for GPU resources<br />
+          - Reliance on community resources & support (unless willing to explore internal model development & training)<br />
+          - Increased management overhead for updates, and maintenance of the LLM models<br />
+          </p>
+      </div>
+    </div>
+
+    <h3 class="w3-padding-16 w3-text-light-grey">Solution Demo</h3>
+    <p>Watch the video below for a demonstration of self-hosted LLM Models in Use.</p>    
     
     <br>
     
     <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
       <div class="w3-full w3-section">
-        <span class="w3-xlarge">Put stuff here</span><br>
-        Partners
+        <div style="padding:56.25% 0 0 0;position:relative; max-width: 95%; margin: auto;"><iframe src="https://player.vimeo.com/video/952145488?h=1ca2a5e00b&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&quality=1080p" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="privateai-step1-demo"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
       </div>
     </div>
-
-    <h3 class="w3-padding-16 w3-text-light-grey">Supporting Content 3</h3>
-    <p class="w3-wide">more text here</p>
-    
-    <br>
-    
-    <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
-      <div class="w3-full w3-section">
-        <span class="w3-xlarge">Put stuff here</span><br>
-        Partners
-      </div>
-    </div>
-
+    <h3 class="w3-padding-16 w3-text-light-grey">Template Source File(s)</h3>
     <a href="https://github.com/lenny-j/private-ai-labs.techlenny.com/blob/main/templates/step3-template.yaml" target="_blank">
     <button class="w3-button w3-light-grey w3-padding-large w3-section">
       <i class="fa fa-download"></i> Open Template
@@ -224,35 +272,27 @@ p {color: white;}
     </button></a>
     
     <hr class="w3-opacity">
-    .. next here
   <!-- End About Section -->
   </div>
   
 
 
   <!-- Contact Section -->
-  <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
-    <h2 class="w3-text-light-grey">Contact Me</h2>
-    <hr style="width:200px" class="w3-opacity">
-
+  <div class="w3-padding-20 w3-content w3-text-grey" id="contact" style="text-align: center;">
+    <h2 class="w3-text-light-grey">Connect with Me on <a href="https://www.linkedin.com/in/lenny-jent/" target="_blank">LinkedIn</a></h2>
+    <a href="https://www.linkedin.com/in/lenny-jent/" target="_blank"><i class="fa fa-linkedin w3-hover-opacity" style="font-size: 60px; color: white; border: white; border-style: solid; border-width: 1px; padding: 10px 10px 10px 10px;"></i></a>
+    <br /><br />
+    <!-- <i class="fa fa-linkedin" aria-hidden="true" style="font-size: 60px;"></i> -->
+    <hr style="width:200px; margin: auto;" class="w3-opacity">
     <div class="w3-section">
       <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Chicago, IL</p>
     </div><br>
-    <p>Let's get in touch. Send me a message:</p>
-
-    
-  <!-- End Contact Section -->
+      <!-- End Contact Section -->
   </div>
   
     <!-- Footer -->
-  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-    <p class="w3-medium">Tech Lenny</p>
+  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge" style="text-align: center;">
+    <p class="w3-medium">TECH LENNY</p>
   <!-- End footer -->
   </footer>
 
